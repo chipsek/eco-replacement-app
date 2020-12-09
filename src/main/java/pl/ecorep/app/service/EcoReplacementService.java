@@ -1,14 +1,21 @@
 package pl.ecorep.app.service;
 
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.stereotype.Service;
+
+import pl.ecorep.app.model.EcoReplacement;
+import pl.ecorep.app.repository.EcoReplacementRepository;
+
+@RequiredArgsConstructor
 @Service
 public class EcoReplacementService {
 
-	public String find(List<String> tags) {
+	private final EcoReplacementRepository replacementRepository;
 
-		return "";
+	public List<EcoReplacement> find(List<String> tags) {
+		return replacementRepository.findAllByTags(tags);
 	}
 }
